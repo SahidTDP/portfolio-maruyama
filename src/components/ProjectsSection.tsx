@@ -11,66 +11,12 @@ import {
   Layers,
 } from "lucide-react";
 
-const projects = [
-  {
-    title: "Dashboard Automatizado de Cumplimiento SIG & KPIs",
-    subtitle: "Plataforma Web de Control Estratégico",
-    icon: BarChart3,
-    color: "from-blue-400 to-blue-600",
-    bgColor: "bg-blue-50",
-    textColor: "text-blue-600",
-    description:
-      "Plataforma web construida para centralizar el control de auditorías internas, gestión de contratistas y visualización de KPIs operativos en tiempo real.",
-    highlights: [
-      "Automatización de reportes de cumplimiento SIG",
-      "Dashboard interactivo con métricas en tiempo real",
-      "Control de hallazgos y no conformidades",
-      "Integración con fuentes de datos operativas",
-    ],
-    tech: ["Python", "Power BI", "SQL", "JavaScript"],
-    image: null,
-  },
-  {
-    title: "Sistema Digital de Gestión de Riesgos y Continuidad Operativa",
-    subtitle: "ISO 31000 · Automatización de Alertas",
-    icon: AlertTriangle,
-    color: "from-amber-400 to-amber-600",
-    bgColor: "bg-amber-50",
-    textColor: "text-amber-600",
-    description:
-      "Matriz IPERC y matriz de riesgos digitalizada que automatiza las alertas de desviaciones mediante scripts de análisis de datos desarrollados en Python.",
-    highlights: [
-      "Matriz IPERC digital interactiva",
-      "Alertas automáticas de desviaciones",
-      "Análisis predictivo de riesgos",
-      "Reportes automatizados para auditoría",
-    ],
-    tech: ["Python", "Power BI", "Excel Avanzado", "VBA"],
-    image: null,
-  },
-  {
-    title: "Plataforma de Control Documentario y Compliance Corporativo",
-    subtitle: "Estandarización ISO · Flujos de Aprobación",
-    icon: FileText,
-    color: "from-emerald-400 to-emerald-600",
-    bgColor: "bg-emerald-50",
-    textColor: "text-emerald-600",
-    description:
-      "Repositorio inteligente para la estandarización de procesos y flujos de aprobación de manuales ISO, asegurando compliance y trazabilidad documental.",
-    highlights: [
-      "Repositorio centralizado de documentos ISO",
-      "Flujos de aprobación automatizados",
-      "Control de versiones y trazabilidad",
-      "Acceso role-based con auditoría",
-    ],
-    tech: ["Next.js", "PostgreSQL", "Docker", "ISO Standards"],
-    image: null,
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -91,6 +37,35 @@ export default function ProjectsSection() {
     return () => observer.disconnect();
   }, []);
 
+  const projectConfig = [
+    {
+      icon: BarChart3,
+      color: "from-blue-400 to-blue-600",
+      bgColor: "bg-blue-50",
+      textColor: "text-blue-600",
+      tech: ["Python", "Power BI", "SQL", "JavaScript"],
+    },
+    {
+      icon: AlertTriangle,
+      color: "from-amber-400 to-amber-600",
+      bgColor: "bg-amber-50",
+      textColor: "text-amber-600",
+      tech: ["Python", "Power BI", "Excel Avanzado", "VBA"],
+    },
+    {
+      icon: FileText,
+      color: "from-emerald-400 to-emerald-600",
+      bgColor: "bg-emerald-50",
+      textColor: "text-emerald-600",
+      tech: ["Next.js", "PostgreSQL", "Docker", "ISO Standards"],
+    },
+  ];
+
+  const projects = t.projects.items.map((item, index) => ({
+    ...item,
+    ...projectConfig[index],
+  }));
+
   return (
     <section
       id="projects"
@@ -105,15 +80,14 @@ export default function ProjectsSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2563eb]/5 border border-[#2563eb]/10 mb-6">
             <Layers size={14} className="text-[#2563eb]" />
             <span className="text-sm font-medium text-[#2563eb]">
-              Proyectos Destacados
+              {t.projects.badge}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0a1628] mb-4">
-            Innovación con Impacto Normativo y Tecnológico
+            {t.projects.title}
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Proyectos que fusionan la ingeniería de procesos tradicional con soluciones
-            tecnológicas avanzadas para la transformación digital.
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -196,8 +170,8 @@ export default function ProjectsSection() {
                       <ExternalLink size={12} />
                       <span>
                         {isExpanded
-                          ? "Mostrar menos"
-                          : "Click para ver detalles"}
+                          ? t.projects.show_less
+                          : t.projects.click_details}
                       </span>
                     </div>
                   </div>

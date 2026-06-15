@@ -16,63 +16,11 @@ import {
   Settings,
 } from "lucide-react";
 
-const skills = [
-  {
-    category: "Ingeniería de Procesos",
-    icon: Settings,
-    color: "from-blue-400 to-blue-600",
-    bgColor: "bg-blue-50",
-    textColor: "text-blue-600",
-    items: [
-      { name: "Lean Six Sigma", level: 95 },
-      { name: "Mapeo de Procesos (BPMN)", level: 90 },
-      { name: "Control Estadístico (SPC)", level: 85 },
-      { name: "Gestión de KPIs", level: 95 },
-    ],
-  },
-  {
-    category: "Sistemas Integrados de Gestión",
-    icon: FileCheck,
-    color: "from-emerald-400 to-emerald-600",
-    bgColor: "bg-emerald-50",
-    textColor: "text-emerald-600",
-    items: [
-      { name: "ISO 9001:2015 (Calidad)", level: 95 },
-      { name: "ISO 14001:2015 (Ambiental)", level: 90 },
-      { name: "ISO 45001:2018 (SST)", level: 90 },
-      { name: "ISO 37001:2016 (Antisoborno)", level: 85 },
-    ],
-  },
-  {
-    category: "Gestión de Riesgos & Compliance",
-    icon: AlertTriangle,
-    color: "from-amber-400 to-amber-600",
-    bgColor: "bg-amber-50",
-    textColor: "text-amber-600",
-    items: [
-      { name: "ISO 31000 (Gestión de Riesgos)", level: 90 },
-      { name: "Matriz IPERC", level: 95 },
-      { name: "Auditorías Internas SIG", level: 90 },
-      { name: "Control Documentario", level: 85 },
-    ],
-  },
-  {
-    category: "Tecnología & Datos",
-    icon: Code2,
-    color: "from-purple-400 to-purple-600",
-    bgColor: "bg-purple-50",
-    textColor: "text-purple-600",
-    items: [
-      { name: "Python (Scripting & Análisis)", level: 80 },
-      { name: "Dashboards (Power BI / Looker)", level: 85 },
-      { name: "SQL / Bases de Datos", level: 75 },
-      { name: "Gobierno de Datos", level: 80 },
-    ],
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function SkillsSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -93,6 +41,45 @@ export default function SkillsSection() {
     return () => observer.disconnect();
   }, []);
 
+  const skills = [
+    {
+      category: t.skills.categories.processes,
+      icon: Settings,
+      colorClass: "bg-blue-50 text-blue-700 border-blue-100/50",
+      bgColor: "bg-blue-50",
+      textColor: "text-blue-600",
+      description: t.skills.items.processes.description,
+      badges: t.skills.items.processes.badges,
+    },
+    {
+      category: t.skills.categories.sig,
+      icon: FileCheck,
+      colorClass: "bg-emerald-50 text-emerald-700 border-emerald-100/50",
+      bgColor: "bg-emerald-50",
+      textColor: "text-emerald-600",
+      description: t.skills.items.sig.description,
+      badges: t.skills.items.sig.badges,
+    },
+    {
+      category: t.skills.categories.risk,
+      icon: AlertTriangle,
+      colorClass: "bg-amber-50 text-amber-700 border-amber-100/50",
+      bgColor: "bg-amber-50",
+      textColor: "text-amber-600",
+      description: t.skills.items.risk.description,
+      badges: t.skills.items.risk.badges,
+    },
+    {
+      category: t.skills.categories.tech,
+      icon: Code2,
+      colorClass: "bg-purple-50 text-purple-700 border-purple-100/50",
+      bgColor: "bg-purple-50",
+      textColor: "text-purple-600",
+      description: t.skills.items.tech.description,
+      badges: t.skills.items.tech.badges,
+    },
+  ];
+
   return (
     <section
       id="skills"
@@ -107,15 +94,14 @@ export default function SkillsSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2563eb]/5 border border-[#2563eb]/10 mb-6">
             <Target size={14} className="text-[#2563eb]" />
             <span className="text-sm font-medium text-[#2563eb]">
-              Stack & Competencias
+              {t.skills.badge}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0a1628] mb-4">
-            Expertise Técnico y Profesional
+            {t.skills.title}
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Más de 5 años integrando metodologías de clase mundial con herramientas
-            tecnológicas para transformar procesos empresariales.
+            {t.skills.subtitle}
           </p>
         </div>
 
@@ -136,27 +122,24 @@ export default function SkillsSection() {
                 </div>
 
                 {/* Category */}
-                <h3 className="text-base font-semibold text-[#0a1628] mb-4">
+                <h3 className="text-base font-semibold text-[#0a1628] mb-1">
                   {skill.category}
                 </h3>
 
-                {/* Skills */}
-                <div className="space-y-3">
-                  {skill.items.map((item, i) => (
-                    <div key={i}>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs text-gray-500">{item.name}</span>
-                        <span className="text-xs font-medium text-gray-400">
-                          {item.level}%
-                        </span>
-                      </div>
-                      <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out`}
-                          style={{ width: `${item.level}%` }}
-                        />
-                      </div>
-                    </div>
+                {/* Practical application description */}
+                <p className="text-xs text-gray-500 mb-4 italic min-h-[2.5rem] flex items-center">
+                  {skill.description}
+                </p>
+
+                {/* Badges Container */}
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {skill.badges.map((badge, i) => (
+                    <span
+                      key={i}
+                      className={`px-2 py-0.5 rounded-full text-xs font-semibold border transition-colors ${skill.colorClass}`}
+                    >
+                      {badge}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -167,7 +150,7 @@ export default function SkillsSection() {
         {/* Bottom CTA */}
         <div className="reveal opacity-0 mt-12 text-center">
           <p className="text-sm text-gray-400">
-            Y más: Power BI · Tableau · PostgreSQL · Docker · Automatización RPA · Gestión de Indicadores EHS
+            {t.skills.extra}
           </p>
         </div>
       </div>

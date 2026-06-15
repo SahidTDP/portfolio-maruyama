@@ -8,63 +8,11 @@ import {
   Building2,
 } from "lucide-react";
 
-const experiences = [
-  {
-    company: "SST Consultores",
-    role: "Consultor SIG & Procesos",
-    period: "2023 - Actualidad",
-    location: "Lima, Perú",
-    description:
-      "Liderazgo en implementación y mantenimiento de Sistemas Integrados de Gestión (ISO 9001, 14001, 45001, 37001). Desarrollo de dashboards automatizados para el control de KPIs operativos y de cumplimiento normativo. Digitalización de matrices de riesgo y control documentario.",
-    highlights: [
-      "Implementación de SIG en 3 organizaciones",
-      "Reducción del 40% en tiempos de auditoría",
-      "Automatización de reportes de cumplimiento",
-    ],
-  },
-  {
-    company: "JEF Servicios Generales",
-    role: "Ingeniero de Procesos & SST",
-    period: "2021 - 2023",
-    location: "Lima, Perú",
-    description:
-      "Gestión integral de procesos operativos y seguridad. Implementación de matriz IPERC digital y sistema de control de contratistas. Liderazgo en la transición de procesos manuales a sistemas digitales.",
-    highlights: [
-      "Digitalización de matriz IPERC",
-      "Sistema de control de contratistas",
-      "Mejora continua de procesos operativos",
-    ],
-  },
-  {
-    company: "Samitex",
-    role: "Analista de Procesos & Calidad",
-    period: "2019 - 2021",
-    location: "Lima, Perú",
-    description:
-      "Responsable del aseguramiento de calidad y control de procesos productivos. Implementación de indicadores de gestión y tableros de control para la toma de decisiones. Participación en auditorías internas y externas.",
-    highlights: [
-      "Implementación de KPIs de producción",
-      "Reducción de mermas en 15%",
-      "Automatización de reportes de calidad",
-    ],
-  },
-  {
-    company: "Sermagen",
-    role: "Practicante de Ingeniería Industrial",
-    period: "2018 - 2019",
-    location: "Lima, Perú",
-    description:
-      "Inicio de trayectoria profesional apoyando en la estandarización de procesos y documentación del sistema de gestión de calidad ISO 9001.",
-    highlights: [
-      "Estandarización de procesos documentados",
-      "Apoyo en implementación ISO 9001",
-      "Elaboración de manuales de procedimientos",
-    ],
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ExperienceSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,6 +33,8 @@ export default function ExperienceSection() {
     return () => observer.disconnect();
   }, []);
 
+  const experiences = t.experience.items;
+
   return (
     <section
       id="experience"
@@ -99,15 +49,14 @@ export default function ExperienceSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2563eb]/5 border border-[#2563eb]/10 mb-6">
             <Briefcase size={14} className="text-[#2563eb]" />
             <span className="text-sm font-medium text-[#2563eb]">
-              Trayectoria Profesional
+              {t.experience.badge}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0a1628] mb-4">
-            Experiencia Laboral
+            {t.experience.title}
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Más de 5 años impulsando la transformación digital y la excelencia operativa
-            en organizaciones líderes.
+            {t.experience.subtitle}
           </p>
         </div>
 
@@ -173,9 +122,11 @@ export default function ExperienceSection() {
                         {exp.highlights.map((h, i) => (
                           <div
                             key={i}
-                            className="flex items-center gap-2 text-xs text-gray-500"
+                            className={`flex items-center gap-2 text-xs text-gray-500 ${
+                              index % 2 === 0 ? "md:justify-end" : ""
+                            }`}
                           >
-                            <div className="w-1 h-1 rounded-full bg-[#2563eb] shrink-0" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#2563eb] shrink-0" />
                             {h}
                           </div>
                         ))}

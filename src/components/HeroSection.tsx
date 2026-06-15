@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowDown, Briefcase, Shield, TrendingUp } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown, Briefcase, TrendingUp } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,73 +31,85 @@ export default function HeroSection() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-20 pb-12 md:pt-24 md:pb-16"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#132347] to-[#1a3a6e]" />
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-40" />
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#2563eb]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#3b82f6]/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#050b14] via-[#0e1b30] to-[#1b355a] animate-metallic" />
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAyIiBoZWlnaHQ9IjYwMiIgdmlld0JveD0iMCAwIDYwIDYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjAzIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
+      {/* Metallic Glowing Orbs */}
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#3b82f6]/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#2563eb]/15 rounded-full blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-1/3 right-10 w-64 h-64 bg-[#60a5fa]/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="reveal opacity-0">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
-            <Shield size={14} className="text-[#60a5fa]" />
-            <span className="text-sm text-gray-300">
-              Transformación Digital & Gestión Normativa
-            </span>
+      {/* Background overlay that dims the scene on spotlight */}
+      <div className="absolute inset-0 bg-[#020617]/50 opacity-0 animate-backdrop-dim pointer-events-none z-0" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Text, Buttons, Stats */}
+          <div className="order-2 md:order-1 text-center md:text-left flex flex-col justify-center">
+            <h1 className="reveal opacity-0 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-3 leading-tight">
+              {t.hero.title1} {t.hero.title2}
+            </h1>
+
+            <p className="reveal opacity-0 text-base sm:text-xl md:text-xl text-gray-300 max-w-3xl mx-auto md:mx-0 mb-3 leading-snug font-medium">
+              {t.hero.subtitle}
+            </p>
+
+            <p className="reveal opacity-0 text-sm sm:text-base md:text-base text-gray-400 max-w-2xl mx-auto md:mx-0 mb-6 leading-relaxed">
+              {t.hero.description}
+            </p>
+
+            <div className="reveal opacity-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-3.5 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 hover:-translate-y-0.5"
+              >
+                <Briefcase size={18} className="group-hover:rotate-12 transition-transform" />
+                {t.hero.cta_projects}
+              </a>
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-3.5 border border-white/20 text-gray-300 hover:text-white font-medium rounded-xl transition-all duration-300 hover:bg-white/5"
+              >
+                <TrendingUp size={18} />
+                {t.hero.cta_contact}
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="reveal opacity-0 mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto md:mx-0 border-t border-white/5 pt-6">
+              <div className="text-center md:text-left">
+                <div className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#60a5fa] to-[#2563eb]">{t.hero.stat1_value}</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">{t.hero.stat1_label}</div>
+              </div>
+              <div className="text-center md:text-left">
+                <div className="text-2xl sm:text-3xl font-bold text-white">{t.hero.stat2_value}</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">{t.hero.stat2_label}</div>
+              </div>
+              <div className="text-center md:text-left">
+                <div className="text-2xl sm:text-3xl font-bold text-white">{t.hero.stat3_value}</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">{t.hero.stat3_label}</div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <h1 className="reveal opacity-0 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
-          <span className="block">Hideto Samir</span>
-          <span className="block mt-2">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60a5fa] to-[#2563eb]">
-              Maruyama Vichir
-            </span>
-          </span>
-        </h1>
-
-        <p className="reveal opacity-0 text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed">
-          Ingeniero de Procesos & Consultor SIG
-        </p>
-
-        <p className="reveal opacity-0 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Transformo operaciones analógicas en sistemas digitales eficientes y normativos,
-          fusionando ingeniería de procesos con tecnología para impulsar la excelencia operacional.
-        </p>
-
-        <div className="reveal opacity-0 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 px-8 py-3.5 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 hover:-translate-y-0.5"
-          >
-            <Briefcase size={18} className="group-hover:rotate-12 transition-transform" />
-            Ver Proyectos
-          </a>
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 px-8 py-3.5 border border-gray-500/30 hover:border-[#2563eb]/50 text-gray-300 hover:text-white font-medium rounded-xl transition-all duration-300 hover:bg-white/5"
-          >
-            <TrendingUp size={18} />
-            Contáctame
-          </a>
-        </div>
-
-        {/* Stats */}
-        <div className="reveal opacity-0 mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-white">5+</div>
-            <div className="text-sm text-gray-400 mt-1">Años de Experiencia</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-white">30+</div>
-            <div className="text-sm text-gray-400 mt-1">Proyectos Completados</div>
-          </div>
-          <div className="text-center col-span-2 md:col-span-1">
-            <div className="text-2xl sm:text-3xl font-bold text-white">6</div>
-            <div className="text-sm text-gray-400 mt-1">Normativas ISO Implementadas</div>
+          {/* Right Column: Profile Image */}
+          <div className="order-1 md:order-2 flex justify-center items-end reveal opacity-0 h-[400px] sm:h-[480px] md:h-[560px] lg:h-[660px] relative group">
+            {/* Electric blue glow background effect behind the person - animate automatically */}
+            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-[#2563eb] to-[#60a5fa] blur-3xl transition-all duration-500 animate-glow-highlight top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10" />
+            
+            {/* Profile Image container - standing tall - animate automatically */}
+            <div className="relative w-full h-full transition-all duration-500 animate-hero-highlight origin-bottom cursor-pointer">
+              <Image
+                src="/hideto_maruyama.png"
+                alt="Hideto Samir Maruyama Vichir"
+                fill
+                sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 420px, 500px"
+                priority
+                className="object-contain object-bottom filter brightness-95 group-hover:brightness-100 transition-all duration-500"
+              />
+            </div>
           </div>
         </div>
       </div>

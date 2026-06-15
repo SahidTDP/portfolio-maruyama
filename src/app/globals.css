@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   --primary-dark: #0a1628;
   --primary-medium: #132347;
@@ -7,23 +8,23 @@
   --accent-blue: #2563eb;
   --accent-light: #3b82f6;
   --accent-glow: #60a5fa;
-  --gray-50: #f8f9fa;
-  --gray-100: #f1f5f9;
-  --gray-200: #e2e8f0;
-  --gray-300: #cbd5e1;
-  --gray-400: #94a3b8;
-  --gray-500: #64748b;
-  --gray-600: #475569;
-  --gray-700: #334155;
-  --gray-800: #1e293b;
-  --gray-900: #0f172a;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #0a1628;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --card-border: #f1f5f9;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-shadow: rgba(0, 0, 0, 0.05);
+  --section-alt: #f8f9fa;
 }
 
+
 @theme inline {
-  --color-background: var(--gray-50);
-  --color-foreground: var(--gray-900);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -33,9 +34,10 @@ html {
 }
 
 body {
-  background: var(--gray-50);
-  color: var(--gray-900);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -44,16 +46,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--gray-100);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gray-300);
+  background: var(--text-muted);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gray-400);
+  background: var(--text-secondary);
 }
 
 /* Animation utilities */
@@ -131,4 +133,56 @@ body {
 /* Timeline line */
 .timeline-line {
   background: linear-gradient(to bottom, var(--accent-blue), var(--accent-light), transparent);
+}
+
+@keyframes metallicGrad {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-metallic {
+  background-size: 200% 200%;
+  animation: metallicGrad 12s ease-in-out infinite;
+}
+
+@keyframes heroHighlight {
+  0%, 75%, 100% {
+    transform: scale(1.1);
+  }
+  87.5% {
+    transform: scale(1.22);
+  }
+}
+
+@keyframes glowHighlight {
+  0%, 75%, 100% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  87.5% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+@keyframes backdropDim {
+  0%, 75%, 100% {
+    opacity: 0;
+  }
+  87.5% {
+    opacity: 0.45;
+  }
+}
+
+.animate-hero-highlight {
+  animation: heroHighlight 8s ease-in-out infinite;
+}
+
+.animate-glow-highlight {
+  animation: glowHighlight 8s ease-in-out infinite;
+}
+
+.animate-backdrop-dim {
+  animation: backdropDim 8s ease-in-out infinite;
 }

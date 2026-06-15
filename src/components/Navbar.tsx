@@ -2,18 +2,28 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
-const navLinks = [
-  { label: "Inicio", href: "#hero" },
-  { label: "Habilidades", href: "#skills" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Experiencia", href: "#experience" },
-  { label: "Contacto", href: "#contact" },
+interface NavLink {
+  label: keyof Dictionary["nav"];
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { label: "inicio", href: "#hero" },
+  { label: "habilidades", href: "#skills" },
+  { label: "liderazgo", href: "#leadership" },
+  { label: "proyectos", href: "#projects" },
+  { label: "experiencia", href: "#experience" },
+  { label: "educacion", href: "#education" },
+  { label: "contacto", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +37,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-lg shadow-gray-200/50"
+          ? "bg-white/80 backdrop-blur-md shadow-lg shadow-gray-100/40"
           : "bg-transparent"
       }`}
     >
@@ -45,7 +55,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -54,23 +64,51 @@ export default function Navbar() {
                   isScrolled ? "text-gray-600" : "text-gray-200"
                 }`}
               >
-                {link.label}
+                {t.nav[link.label]}
               </a>
             ))}
+
+            {/* Divider */}
+            <div className="w-px h-5 bg-gray-300/30" />
+
+            {/* Language Switcher */}
+            <button
+              onClick={() => setLang(lang === "es" ? "en" : "es")}
+              className={`text-xs font-semibold px-2.5 py-1 rounded-md border transition-all duration-200 hover:bg-[#2563eb]/10 hover:border-[#2563eb]/30 ${
+                isScrolled
+                  ? "text-gray-600 border-gray-200"
+                  : "text-gray-300 border-white/20"
+              }`}
+              aria-label={t.nav.language}
+            >
+              {lang === "es" ? "EN" : "ES"}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled
-                ? "text-gray-600 hover:bg-gray-100"
-                : "text-white hover:bg-white/10"
-            }`}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={() => setLang(lang === "es" ? "en" : "es")}
+              className={`text-xs font-semibold px-2 py-1 rounded-md border transition-colors ${
+                isScrolled
+                  ? "text-gray-600 border-gray-200"
+                  : "text-gray-300 border-white/20"
+              }`}
+            >
+              {lang === "es" ? "EN" : "ES"}
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-2 rounded-lg transition-colors ${
+                isScrolled
+                  ? "text-gray-600 hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
+              }`}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -86,9 +124,9 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block px-4 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50 hover:text-[#2563eb] transition-colors"
+              className="block px-4 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-[#f8f9fa] hover:text-[#2563eb] transition-colors"
             >
-              {link.label}
+              {t.nav[link.label]}
             </a>
           ))}
         </div>
