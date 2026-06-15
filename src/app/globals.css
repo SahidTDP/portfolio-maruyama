@@ -151,7 +151,7 @@ body {
     transform: scale(1.1);
   }
   87.5% {
-    transform: scale(1.22);
+    transform: scale(1.28);
   }
 }
 
@@ -161,8 +161,8 @@ body {
     transform: translate(-50%, -50%) scale(1);
   }
   87.5% {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1.5);
   }
 }
 
@@ -171,8 +171,33 @@ body {
     opacity: 0;
   }
   87.5% {
-    opacity: 0.45;
+    opacity: 0.6;
   }
+}
+
+@keyframes textDimTitle {
+  0%, 75%, 100% { opacity: 1; }
+  87.5% { opacity: 0.85; }
+}
+
+@keyframes textDimSubtitle {
+  0%, 75%, 100% { opacity: 1; }
+  87.5% { opacity: 0.7; }
+}
+
+@keyframes textDimDesc {
+  0%, 75%, 100% { opacity: 1; }
+  87.5% { opacity: 0.45; }
+}
+
+@keyframes textDimButtons {
+  0%, 75%, 100% { opacity: 1; }
+  87.5% { opacity: 0.75; }
+}
+
+@keyframes textDimStats {
+  0%, 75%, 100% { opacity: 1; }
+  87.5% { opacity: 0.45; }
 }
 
 .animate-hero-highlight {
@@ -185,4 +210,24 @@ body {
 
 .animate-backdrop-dim {
   animation: backdropDim 8s ease-in-out infinite;
+}
+
+.animate-text-dim-title {
+  animation: textDimTitle 8s ease-in-out infinite;
+}
+
+.animate-text-dim-subtitle {
+  animation: textDimSubtitle 8s ease-in-out infinite;
+}
+
+.animate-text-dim-desc {
+  animation: textDimDesc 8s ease-in-out infinite;
+}
+
+.animate-text-dim-buttons {
+  animation: textDimButtons 8s ease-in-out infinite;
+}
+
+.animate-text-dim-stats {
+  animation: textDimStats 8s ease-in-out infinite;
 }

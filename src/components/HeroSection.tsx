@@ -48,19 +48,19 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Text, Buttons, Stats */}
           <div className="order-2 md:order-1 text-center md:text-left flex flex-col justify-center">
-            <h1 className="reveal opacity-0 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-3 leading-tight">
+            <h1 className="reveal opacity-0 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-3 leading-tight animate-text-dim-title">
               {t.hero.title1} {t.hero.title2}
             </h1>
 
-            <p className="reveal opacity-0 text-base sm:text-xl md:text-xl text-gray-300 max-w-3xl mx-auto md:mx-0 mb-3 leading-snug font-medium">
+            <p className="reveal opacity-0 text-base sm:text-xl md:text-xl text-gray-300 max-w-3xl mx-auto md:mx-0 mb-3 leading-snug font-medium animate-text-dim-subtitle">
               {t.hero.subtitle}
             </p>
 
-            <p className="reveal opacity-0 text-sm sm:text-base md:text-base text-gray-400 max-w-2xl mx-auto md:mx-0 mb-6 leading-relaxed">
+            <p className="reveal opacity-0 text-sm sm:text-base md:text-base text-gray-400 max-w-2xl mx-auto md:mx-0 mb-6 leading-relaxed animate-text-dim-desc">
               {t.hero.description}
             </p>
 
-            <div className="reveal opacity-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+            <div className="reveal opacity-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 animate-text-dim-buttons">
               <a
                 href="#projects"
                 className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-3.5 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 hover:-translate-y-0.5"
@@ -78,7 +78,7 @@ export default function HeroSection() {
             </div>
 
             {/* Stats */}
-            <div className="reveal opacity-0 mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto md:mx-0 border-t border-white/5 pt-6">
+            <div className="reveal opacity-0 mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto md:mx-0 border-t border-white/5 pt-6 animate-text-dim-stats">
               <div className="text-center md:text-left">
                 <div className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#60a5fa] to-[#2563eb]">{t.hero.stat1_value}</div>
                 <div className="text-xs sm:text-sm text-gray-400 mt-1">{t.hero.stat1_label}</div>
