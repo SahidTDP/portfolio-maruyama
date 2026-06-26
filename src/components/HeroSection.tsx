@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { ArrowDown, Briefcase, TrendingUp } from "lucide-react";
+import { ArrowDown, Briefcase, TrendingUp, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
@@ -69,10 +69,17 @@ export default function HeroSection() {
                 {t.hero.cta_projects}
               </a>
               <a
-                href="#contact"
+                href="/CV_Hideto_Maruyama.pdf"
+                download="CV_Hideto_Maruyama.pdf"
                 className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-3.5 border border-white/20 text-gray-300 hover:text-white font-medium rounded-xl transition-all duration-300 hover:bg-white/5"
               >
-                <TrendingUp size={18} />
+                <Download size={18} />
+                {t.hero.cta_download_cv}
+              </a>
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-6 py-3.5 text-gray-400 hover:text-white font-medium transition-all duration-300 hover:underline"
+              >
                 {t.hero.cta_contact}
               </a>
             </div>

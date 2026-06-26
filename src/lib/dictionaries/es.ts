@@ -24,6 +24,7 @@ const es = {
     description: "Combino la disciplina de la ingeniería y la filosofía de mejora continua (Lean Six Sigma) con soluciones tecnológicas. Traduzco normativas complejas en operaciones digitales, eficientes y seguras, liderando equipos con comunicación clara y empatía.",
     cta_projects: "Ver Proyectos",
     cta_contact: "Contáctame",
+    cta_download_cv: "Descargar CV",
     stat1_value: "100%",
     stat1_label: "Conformidad SUNAFIL y Cero Accidentes",
     stat2_value: "Speaker",
@@ -81,41 +82,77 @@ const es = {
     subtitle: "Más de 7 años impulsando la transformación digital, el cumplimiento normativo y la excelencia operativa en organizaciones líderes.",
     items: [
       {
-        company: "Banco Santander & JEF",
-        role: "Consultor SIG & SST",
-        period: "2025 - Presente",
+        company: "Consultoría por Proyecto",
+        role: "Consultor en SIG, Procesos, Auditorías, Compliance & Transformación Digital",
+        period: "Mayo 2025 - Presente",
         location: "Lima, Perú",
-        description: "Lideré la gobernanza de SST para la expansión de 5 agencias simultáneas. Implementación y mantenimiento de Sistemas Integrados de Gestión con enfoque en cumplimiento normativo y seguridad industrial.",
+        description: "Consultoría enfocada en la implementación de Sistemas Integrados de Gestión, auditorías, cumplimiento normativo y la automatización y digitalización de flujos de trabajo con herramientas modernas.",
         highlights: [
-          "100% de conformidad SUNAFIL",
-          "0 accidentes en proyectos de expansión",
-          "Gestión de 5 agencias simultáneas",
-        ],
+          "Ejecución de auditorías internas bajo enfoque Trinorma (ISO 9001, 14001, 45001)",
+          "Automatización de reportes mediante IA, Python, n8n y Google Apps Script",
+          "Diseño de plataformas digitales para gestión documental y acciones correctivas"
+        ]
       },
       {
-        company: "Samitex & Sermagen",
-        role: "Especialista SIG y Analista de Procesos",
-        period: "2024 - 2025",
+        company: "SST Consultores S.A.",
+        role: "Consultor SIG, Procesos y Transformación Digital (Proyecto: Grupo Santander)",
+        period: "Marzo 2025 - Presente",
         location: "Lima, Perú",
-        description: "Implementación de metodologías de ingeniería y protocolos NFPA 70E para seguridad eléctrica. Optimización de procesos productivos y sistemas de gestión integrados.",
+        description: "Consultoría de SIG y SST enfocada en el diseño, implementación y control documental del SIG en proyectos de expansión del Grupo Santander.",
         highlights: [
-          "Implementación de protocolos NFPA 70E",
-          "Ponente destacado EXPOINDUSTRIAL 2024",
-          "Optimización de procesos de ingeniería",
-        ],
+          "Diseño e implementación de SIG bajo ISO 9001:2015, ISO 14001 e ISO 45001",
+          "Elaboración de mapas de procesos, procedimientos y matrices documentales",
+          "Seguimiento de KPIs de SST usando GISSAT y tableros interactivos Power BI"
+        ]
       },
       {
-        company: "Consultora de Seguridad",
-        role: "Supervisor de Proyectos ITSE",
-        period: "2018 - 2020",
+        company: "JEF Servicios Generales",
+        role: "Especialista SIG y Gestión de Proyectos",
+        period: "Marzo 2025 - Marzo 2026",
         location: "Lima, Perú",
-        description: "Auditoría de infraestructura y diseño de planes de continuidad corporativa. Supervisión de proyectos de seguridad integral en instalaciones industriales y comerciales.",
+        description: "Especialista encargado del aseguramiento del Sistema Integral de Gestión (SIG) y control de contratistas en proyectos de infraestructura.",
         highlights: [
-          "Auditoría de infraestructura crítica",
-          "Diseño de planes de continuidad corporativa",
-          "Supervisión de proyectos ITSE",
-        ],
+          "Aseguramiento del Sistema Integral de Gestión y continuidad operativa",
+          "Gestión y control de contratistas y auditorías de procesos en campo",
+          "Seguimiento a indicadores de cumplimiento y control documentario"
+        ]
       },
+      {
+        company: "SAMITEX",
+        role: "Analista de Procesos y Control Operativo",
+        period: "Marzo 2024 - Enero 2025",
+        location: "Lima, Perú",
+        description: "Mapeo y estandarización de procesos bajo un enfoque de Sistema Integral de Gestión e infraestructura operativa.",
+        highlights: [
+          "Estandarización y mapeo de procesos productivos y operativos",
+          "Auditorías de calidad y control de calidad operativa",
+          "Coordinación de comités transversales y control de KPIs"
+        ]
+      },
+      {
+        company: "SERMAGEN",
+        role: "Supervisor en Compliance Operativo y Control de Proyectos",
+        period: "Enero 2023 - Mayo 2024",
+        location: "Lima, Perú",
+        description: "Supervisión de compliance normativo y control de procesos en campo, asegurando la mejora continua y reportabilidad de indicadores.",
+        highlights: [
+          "Aseguramiento del cumplimiento normativo y del compliance en campo",
+          "Gestión, planificación de proyectos y análisis de desviaciones",
+          "Reportabilidad de indicadores de gestión y de seguridad"
+        ]
+      },
+      {
+        company: "Consultoría en ITSE – Ing. Dally Vichir",
+        role: "Supervisor de Proyectos de Adecuación ITSE",
+        period: "Noviembre 2018 - Abril 2020",
+        location: "Lima, Perú",
+        description: "Supervisión técnica de adecuación de seguridad en edificaciones bajo lineamientos ITSE, elaborando planes de seguridad y modelados de evacuación.",
+        highlights: [
+          "Diseño de planes de continuidad, contingencia y modelado de evacuación",
+          "Auditoría y diagnóstico de infraestructura y seguridad de instalaciones",
+          "Gestión y dirección de proyectos de adecuación en seguridad"
+        ]
+      }
     ],
   },
   projects: {
@@ -166,18 +203,56 @@ const es = {
     subtitle: "Sólida base académica y certificaciones especializadas en ingeniería, gestión y tecnología.",
     higher_title: "Educación Superior",
     certs_title: "Certificaciones Clave",
-    edu1_degree: "Ingeniería Industrial",
-    edu1_institution: "Universidad Peruana de Ciencias Aplicadas (UPC)",
-    edu1_period: "2018 - 2025",
-    edu2_degree: "Diplomado: Sistemas Integrados de Gestión & Auditor Líder Trinorma (ISO 9001, 14001, 45001)",
-    edu2_institution: "Universidad Nacional Agraria La Molina (UNALM)",
-    edu2_period: "2026 - Actualidad",
-    cert1_name: "Lean Six Sigma (Yellow Belt)",
-    cert1_org: "Tecnológico de Monterrey | Coursera",
-    cert2_name: "Python para Análisis de Datos",
-    cert2_org: "University of Michigan",
-    cert3_name: "Inspector de Seguridad en Riesgo Eléctrico (NFPA 70E)",
-    cert3_org: "Udemy",
+    items: [
+      {
+        degree: "Ingeniería Industrial (Programa de titulación en curso)",
+        institution: "Universidad Peruana de Ciencias Aplicadas (UPC)",
+        period: "Agosto 2018 – Agosto 2025",
+      },
+      {
+        degree: "Sistemas Integrados de Gestión (ISO 9001, 14001, 45001, 37001 y 31000) + Auditor líder Trinorma: ISO 9001, 14001 y 45001 (Diplomado)",
+        institution: "Universidad Nacional Agraria La Molina (UNALM)",
+        period: "Junio 2026 – En curso",
+      },
+    ],
+    certifications: [
+      {
+        name: "Power BI para indicadores de gestión",
+        org: "EDUTIN ACADEMY",
+      },
+      {
+        name: "Microsoft Power Automate",
+        org: "EDUTIN ACADEMY",
+      },
+      {
+        name: "Capacitaciones en SST y Gestión de Riesgo (Trabajos en Altura, Trabajos en Caliente, Espacios Confinados y Riesgo Eléctrico)",
+        org: "ALSICARD SAC",
+      },
+      {
+        name: "NFPA 70E:2024 – Inspector de Seguridad en Riesgo Eléctrico",
+        org: "UDEMY",
+      },
+      {
+        name: "Seguridad Contra Incendio: Gestión de Riesgos bajo Normas NFPA",
+        org: "UDEMY",
+      },
+      {
+        name: "Gestión por Procesos y BPM",
+        org: "EDUTIN ACADEMY",
+      },
+      {
+        name: "Python",
+        org: "University of Michigan",
+      },
+      {
+        name: "Lean Six Sigma",
+        org: "Coursera | Tecnológico de Monterrey",
+      },
+      {
+        name: "Herramientas Técnicas para Infraestructura (AutoCAD básico, diagrama unifilar y cuadro de cargas)",
+        org: "UDEMY",
+      },
+    ],
   },
   contact: {
     badge: "Contacto",
@@ -185,7 +260,7 @@ const es = {
     subtitle: "¿Buscas transformar digitalmente tus procesos o implementar un SIG? Estoy listo para ayudar a tu organización.",
     info_title: "Información de Contacto",
     email_label: "Correo Electrónico",
-    email_value: "hs.maruyama.vichir@gmail.com",
+    email_value: "hs.maruyama.vichir@outlook.com",
     phone_label: "Teléfono",
     phone_value: "+51 962 164 307",
     location_label: "Ubicación",

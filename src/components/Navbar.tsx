@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import type { Dictionary } from "@/lib/dictionaries/es";
 
@@ -74,7 +74,7 @@ export default function Navbar() {
             {/* Language Switcher */}
             <button
               onClick={() => setLang(lang === "es" ? "en" : "es")}
-              className={`text-xs font-semibold px-2.5 py-1 rounded-md border transition-all duration-200 hover:bg-[#2563eb]/10 hover:border-[#2563eb]/30 ${
+              className={`text-xs font-semibold px-2.5 py-1.5 rounded-md border transition-all duration-200 hover:bg-[#2563eb]/10 hover:border-[#2563eb]/30 ${
                 isScrolled
                   ? "text-gray-600 border-gray-200"
                   : "text-gray-300 border-white/20"
@@ -83,6 +83,20 @@ export default function Navbar() {
             >
               {lang === "es" ? "EN" : "ES"}
             </button>
+
+            {/* Download CV Button */}
+            <a
+              href="/CV_Hideto_Maruyama.pdf"
+              download="CV_Hideto_Maruyama.pdf"
+              className={`text-xs font-semibold px-3 py-1.5 rounded-lg border flex items-center gap-1.5 transition-all duration-200 ${
+                isScrolled
+                  ? "bg-[#2563eb] border-[#2563eb] text-white hover:bg-[#1d4ed8]"
+                  : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+              }`}
+            >
+              <Download size={14} />
+              {t.hero.cta_download_cv}
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -129,6 +143,19 @@ export default function Navbar() {
               {t.nav[link.label]}
             </a>
           ))}
+
+          {/* Download CV Button Mobile */}
+          <div className="pt-2">
+            <a
+              href="/CV_Hideto_Maruyama.pdf"
+              download="CV_Hideto_Maruyama.pdf"
+              onClick={() => setIsOpen(false)}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-[#2563eb] rounded-lg hover:bg-[#1d4ed8] transition-colors shadow-sm"
+            >
+              <Download size={16} />
+              {t.hero.cta_download_cv}
+            </a>
+          </div>
         </div>
       </div>
     </nav>

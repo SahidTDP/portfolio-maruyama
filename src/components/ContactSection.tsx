@@ -106,7 +106,9 @@ export default function ContactSection() {
 
                 {/* Phone */}
                 <a
-                  href={`tel:${t.contact.phone_value}`}
+                  href={`https://wa.me/${t.contact.phone_value.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-4 p-4 rounded-xl bg-white border border-gray-100 hover:border-[#2563eb]/20 hover:shadow-lg hover:shadow-[#2563eb]/5 transition-all duration-300"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[#2563eb]/5 flex items-center justify-center group-hover:scale-110 transition-transform">

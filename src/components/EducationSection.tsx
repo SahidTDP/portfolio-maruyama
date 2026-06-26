@@ -34,35 +34,12 @@ export default function EducationSection() {
     return () => observer.disconnect();
   }, []);
 
-  const education = [
-    {
-      degree: t.education.edu1_degree,
-      institution: t.education.edu1_institution,
-      period: t.education.edu1_period,
-      icon: GraduationCap,
-    },
-    {
-      degree: t.education.edu2_degree,
-      institution: t.education.edu2_institution,
-      period: t.education.edu2_period,
-      icon: BookOpen,
-    },
-  ];
+  const education = t.education.items.map((edu, idx) => ({
+    ...edu,
+    icon: idx === 0 ? GraduationCap : BookOpen,
+  }));
 
-  const certifications = [
-    {
-      name: t.education.cert1_name,
-      org: t.education.cert1_org,
-    },
-    {
-      name: t.education.cert2_name,
-      org: t.education.cert2_org,
-    },
-    {
-      name: t.education.cert3_name,
-      org: t.education.cert3_org,
-    },
-  ];
+  const certifications = t.education.certifications;
 
   return (
     <section

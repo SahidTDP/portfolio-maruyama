@@ -26,6 +26,7 @@ const en: Dictionary = {
     description: "I combine the discipline of engineering and the philosophy of continuous improvement (Lean Six Sigma) with technological solutions. I translate complex regulations into digital, efficient, and secure operations, leading teams with clear communication and empathy.",
     cta_projects: "View Projects",
     cta_contact: "Contact Me",
+    cta_download_cv: "Download CV",
     stat1_value: "100%",
     stat1_label: "SUNAFIL Compliance & Zero Accidents",
     stat2_value: "Speaker",
@@ -83,41 +84,77 @@ const en: Dictionary = {
     subtitle: "Over 7 years driving digital transformation, regulatory compliance, and operational excellence in leading organizations.",
     items: [
       {
-        company: "Banco Santander & JEF",
-        role: "IMS & OH&S Consultant",
-        period: "2025 - Present",
+        company: "Project-based Consulting",
+        role: "IMS, Processes, Audits, Compliance & Digital Transformation Consultant",
+        period: "May 2025 - Present",
         location: "Lima, Peru",
-        description: "Led the OH&S governance for the simultaneous expansion of 5 branches. Implementation and maintenance of Integrated Management Systems focusing on regulatory compliance and industrial safety.",
+        description: "Consulting focused on the implementation of Integrated Management Systems, auditing, regulatory compliance, and workflow automation & digitalization using modern tools.",
         highlights: [
-          "100% SUNAFIL compliance",
-          "0 accidents in expansion projects",
-          "Management of 5 simultaneous branches",
-        ],
+          "Execution of internal audits under Trinorma framework (ISO 9001, 14001, 45001)",
+          "Workflow automation using AI, Python, n8n, and Google Apps Script",
+          "Design of digital platforms for document control and corrective actions"
+        ]
       },
       {
-        company: "Samitex & Sermagen",
-        role: "IMS Specialist & Process Analyst",
-        period: "2024 - 2025",
+        company: "SST Consultores S.A.",
+        role: "IMS, Process & Digital Transformation Consultant (Project: Grupo Santander)",
+        period: "March 2025 - Present",
         location: "Lima, Peru",
-        description: "Implementation of engineering methodologies and NFPA 70E protocols for electrical safety. Optimization of production processes and integrated management systems.",
+        description: "HSE and IMS consulting focused on designing, implementing, and controlling document workflows for Grupo Santander's expansion projects.",
         highlights: [
-          "Implementation of NFPA 70E protocols",
-          "Featured speaker at EXPOINDUSTRIAL 2024",
-          "Optimization of engineering processes",
-        ],
+          "Design and implementation of IMS under ISO 9001, 14001, and 45001 standards",
+          "Development of process maps, procedures, and document matrix control",
+          "Tracking OH&S KPIs using GISSAT and interactive Power BI dashboards"
+        ]
       },
       {
-        company: "Security Consulting",
-        role: "ITSE Project Supervisor",
-        period: "2018 - 2020",
+        company: "JEF Servicios Generales",
+        role: "IMS & Project Management Specialist",
+        period: "March 2025 - March 2026",
         location: "Lima, Peru",
-        description: "Infrastructure auditing and design of corporate continuity plans. Supervision of comprehensive security projects in industrial and commercial facilities.",
+        description: "Specialist in charge of Integrated Management System (IMS) assurance and contractor control in infrastructure projects.",
         highlights: [
-          "Critical infrastructure auditing",
-          "Design of corporate continuity plans",
-          "Supervision of ITSE projects",
-        ],
+          "Assurance of the Integrated Management System and business continuity",
+          "Management, control of contractors, and process auditing on site",
+          "Monitoring of compliance indicators and document control"
+        ]
       },
+      {
+        company: "SAMITEX",
+        role: "Process & Operational Control Analyst",
+        period: "March 2024 - January 2025",
+        location: "Lima, Peru",
+        description: "Process mapping and standardization under an Integrated Management System (IMS) and operational infrastructure framework.",
+        highlights: [
+          "Standardization and mapping of production and operational processes",
+          "Quality audits and operational quality control",
+          "Coordination of cross-functional committees and KPI tracking"
+        ]
+      },
+      {
+        company: "SERMAGEN",
+        role: "Supervisor in Operational Compliance & Project Control",
+        period: "January 2023 - May 2024",
+        location: "Lima, Peru",
+        description: "Supervision of regulatory compliance and operational process control on site, ensuring continuous improvement and KPI reporting.",
+        highlights: [
+          "Assurance of regulatory and operational compliance on site",
+          "Project management, scheduling, and deviation analysis",
+          "Reporting of management and safety performance indicators"
+        ]
+      },
+      {
+        company: "ITSE Consulting – Eng. Dally Vichir",
+        role: "ITSE Safety Adequacy Project Supervisor",
+        period: "November 2018 - April 2020",
+        location: "Lima, Peru",
+        description: "Technical supervision of building safety adequacy under ITSE guidelines, preparing safety plans and evacuation modeling.",
+        highlights: [
+          "Design of continuity and contingency plans and evacuation modeling",
+          "Audit and diagnosis of infrastructure and facility security compliance",
+          "Management and steering of safety adequacy projects"
+        ]
+      }
     ],
   },
   projects: {
@@ -168,18 +205,56 @@ const en: Dictionary = {
     subtitle: "Solid academic foundation and specialized certifications in engineering, management, and technology.",
     higher_title: "Higher Education",
     certs_title: "Key Certifications",
-    edu1_degree: "Industrial Engineering",
-    edu1_institution: "Universidad Peruana de Ciencias Aplicadas (UPC)",
-    edu1_period: "2018 - 2025",
-    edu2_degree: "Diploma: Integrated Management Systems & Lead Auditor Trinorma (ISO 9001, 14001, 45001)",
-    edu2_institution: "Universidad Nacional Agraria La Molina (UNALM)",
-    edu2_period: "2026 - Present",
-    cert1_name: "Lean Six Sigma (Yellow Belt)",
-    cert1_org: "Tecnológico de Monterrey | Coursera",
-    cert2_name: "Python for Data Analysis",
-    cert2_org: "University of Michigan",
-    cert3_name: "Electrical Safety Risk Inspector (NFPA 70E)",
-    cert3_org: "Udemy",
+    items: [
+      {
+        degree: "Industrial Engineering (Degree program in progress)",
+        institution: "Universidad Peruana de Ciencias Aplicadas (UPC)",
+        period: "August 2018 – August 2025",
+      },
+      {
+        degree: "Integrated Management Systems (ISO 9001, 14001, 45001, 37001 and 31000) + Trinorma Lead Auditor: ISO 9001, 14001 and 45001 (Diploma)",
+        institution: "Universidad Nacional Agraria La Molina (UNALM)",
+        period: "June 2026 – Present",
+      },
+    ],
+    certifications: [
+      {
+        name: "Power BI for Management Indicators",
+        org: "EDUTIN ACADEMY",
+      },
+      {
+        name: "Microsoft Power Automate",
+        org: "EDUTIN ACADEMY",
+      },
+      {
+        name: "OH&S and Risk Management Training (Working at Heights, Hot Work, Confined Spaces, and Electrical Risk)",
+        org: "ALSICARD SAC",
+      },
+      {
+        name: "NFPA 70E:2024 – Electrical Safety Risk Inspector",
+        org: "UDEMY",
+      },
+      {
+        name: "Fire Safety: Risk Management under NFPA Standards",
+        org: "UDEMY",
+      },
+      {
+        name: "Process Management and BPM",
+        org: "EDUTIN ACADEMY",
+      },
+      {
+        name: "Python",
+        org: "University of Michigan",
+      },
+      {
+        name: "Lean Six Sigma",
+        org: "Coursera | Tecnológico de Monterrey",
+      },
+      {
+        name: "Technical Tools for Infrastructure (Basic AutoCAD, single-line diagram, and load chart)",
+        org: "UDEMY",
+      },
+    ],
   },
   contact: {
     badge: "Contact",
@@ -187,7 +262,7 @@ const en: Dictionary = {
     subtitle: "Looking to digitally transform your processes or implement an IMS? I'm ready to help your organization.",
     info_title: "Contact Information",
     email_label: "Email",
-    email_value: "hs.maruyama.vichir@gmail.com",
+    email_value: "hs.maruyama.vichir@outlook.com",
     phone_label: "Phone",
     phone_value: "+51 962 164 307",
     location_label: "Location",
