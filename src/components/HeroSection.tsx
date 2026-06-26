@@ -60,25 +60,25 @@ export default function HeroSection() {
               {t.hero.description}
             </p>
 
-            <div className="reveal opacity-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 animate-text-dim-buttons">
+            <div className="reveal opacity-0 flex flex-row flex-wrap items-center justify-center md:justify-start gap-3 animate-text-dim-buttons">
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-3.5 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-sm sm:text-base font-medium rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 hover:-translate-y-0.5"
               >
-                <Briefcase size={18} className="group-hover:rotate-12 transition-transform" />
+                <Briefcase size={16} className="group-hover:rotate-12 transition-transform" />
                 {t.hero.cta_projects}
               </a>
               <a
                 href="/CV_Hideto_Maruyama.pdf"
                 download="CV_Hideto_Maruyama.pdf"
-                className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-3.5 border border-white/20 text-gray-300 hover:text-white font-medium rounded-xl transition-all duration-300 hover:bg-white/5"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 text-gray-300 hover:text-white text-sm sm:text-base font-medium rounded-xl transition-all duration-300 hover:bg-white/5"
               >
-                <Download size={18} />
+                <Download size={16} />
                 {t.hero.cta_download_cv}
               </a>
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 w-full sm:w-auto justify-center px-6 py-3.5 text-gray-400 hover:text-white font-medium transition-all duration-300 hover:underline"
+                className="group inline-flex items-center gap-1.5 px-4 py-2.5 text-gray-400 hover:text-white text-sm font-medium transition-all duration-300 hover:underline"
               >
                 {t.hero.cta_contact}
               </a>
